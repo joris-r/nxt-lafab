@@ -3,4 +3,5 @@ title: Hello
 layout: base.njk
 ---
 
-`\o/`
+* [trombi](./trombi/)
+
