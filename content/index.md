@@ -3,5 +3,5 @@ title: Hello
 layout: base.njk
 ---
 
-* [trombi](./trombi/)
+* [trombi](/trombi_C2F)
 

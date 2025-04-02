@@ -1,0 +1,19 @@
+---
+title: Les clé2fabs - permanents d'accueil de La Fabrique
+layout: base.njk
+---
+
+<h1>{{title}}</h1>
+
+<div class="trombi">
+
+{% for people in C2F|sort %}
+
+<figure>
+  <img src="../img/C2F/{{people}}.jpeg" alt="{{people}}" width="400"/>
+  <figcaption>{{people}}</figcaption>
+</figure>
+
+{% endfor %}
+
+</div>

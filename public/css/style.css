@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+img,
+picture {
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.trombi {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 20rem);
+  justify-content: center;
+  align-content: center;
+  gap: 1rem;
+}
+
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 1cm;
+  }
+
+  .trombi {
+    display: grid;
+    grid-template-columns: repeat(5, 42mm);
+    gap: 0.5em;
+    justify-content: space-evenly;
+    /* weird behavior with weasyprint */
+    /* padding-right: 1.5em; */
+  }
+
+  /* weird behavior with weasyprint */
+  /* figure figcaption {
+    margin-top: 0.25em;
+  } */
+
+}
+
+
+figure {
+  display: inline-block;
+}
+
+figure img {
+  vertical-align: top;
+}
+
+figure figcaption {
+  text-align: center;
+  font-size: 1.5em;
+}
