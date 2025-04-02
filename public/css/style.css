@@ -5,6 +5,7 @@
 
 body {
   font-family: Helvetica, Arial, sans-serif;
+  margin : 2rem;
 }
 
 img,
@@ -17,11 +18,12 @@ h1 {
   text-align: center;
   margin-top: 0.75em;
   margin-bottom: 0.75em;
+  text-wrap: balance;
 }
 
 .trombi {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 20rem);
+  grid-template-columns: repeat(auto-fit, minmax(20rem,1fr));
   justify-content: center;
   align-content: center;
   gap: 1rem;
