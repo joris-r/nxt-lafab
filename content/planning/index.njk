@@ -1,0 +1,14 @@
+---
+layout: base.njk
+---
+
+<table>
+{% for row in planning %}
+    <tr>
+        <td> <a href="/planning/W{{ row[0] | padZero(2) }}">W{{ row[0] | padZero(2) }}</a></td>
+    {% for cell in row %}
+        <td>{{cell}}</td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+</table>

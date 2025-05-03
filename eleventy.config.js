@@ -1,5 +1,7 @@
+import { parse } from 'csv-parse/sync';
+
 export const config = {
-	// These are all optional:
+	// Directory configuration
 	dir: {
 		input: "content",          // default: "."
 		includes: "../_includes",  // default: "_includes" (`input` relative)
@@ -7,10 +9,10 @@ export const config = {
 		output: "_site"
 	},
 
-	// Pre-process *.md files with: (default: `liquid`)
+	// Pre-process *.md files with nunjucks (default: `liquid`)
 	markdownTemplateEngine: "njk",
 
-	// Pre-process *.html files with: (default: `liquid`)
+	// Pre-process *.html files with nunjucks (default: `liquid`)
 	htmlTemplateEngine: "njk",
 
 };
@@ -22,7 +24,24 @@ export default async function (eleventyConfig) {
 	eleventyConfig
 		.addPassthroughCopy({
 			"./public/": "/"
-		})
+		});
+		
+	// Add .csv file data type 
+	eleventyConfig.addDataExtension("csv", (contents) => {
+		const records = parse(contents, {
+			columns: false,
+			skip_empty_lines: true,
+			trim: true
+		});
 
+		return records;
+	});
+
+	//
+	eleventyConfig.addFilter("padZero", function (value, n) {
+		return value.padStart(n, "0");
+	});
 };
+
+
 
