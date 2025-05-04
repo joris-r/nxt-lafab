@@ -1,4 +1,5 @@
 import { parse } from 'csv-parse/sync';
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 
 export const config = {
 	// Directory configuration
@@ -41,6 +42,12 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addFilter("padZero", function (value, n) {
 		return value.padStart(n, "0");
 	});
+	
+	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+		// output image widths
+		widths: [200, 400, 800, 1600]
+	});
+
 };
 
 
