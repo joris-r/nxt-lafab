@@ -43,6 +43,7 @@ export default async function (eleventyConfig) {
 		return value.padStart(n, "0");
 	});
 	
+	// Configure 11ty Image plugin
 	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		// output image widths
 		widths: [200, 400, 800, 1600]

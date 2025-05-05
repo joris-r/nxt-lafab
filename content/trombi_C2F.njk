@@ -10,7 +10,7 @@ layout: base.njk
 {% for people in C2F|sort %}
 
 <figure>
-  <img src="/pictures/C2F/{{people}}.jpeg" alt="Une photo de {{people}}" loading="lazy"/>
+  <img src="/pictures/C2F/{{people}}.jpeg" alt="Une photo de {{people}}" eleventy:widths="350, 700" loading="lazy"/>
   <figcaption>{{people}}</figcaption>
 </figure>
 
