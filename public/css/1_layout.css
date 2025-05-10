@@ -1,0 +1,132 @@
+/* ---- CSS Layouts ---- */
+
+
+/* The Flow layout (aka The Stack layout) - vertical spacing */
+/* https://bell.bz/my-favourite-3-lines-of-css/ */
+/* https://every-layout.dev/layouts/stack/ */
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+.l_flow>*+* {
+    margin-block-start: var(--l_flow__space, 1em);
+}
+
+.l_flow {
+    padding-block: var(--l_flow__padding, 1rem);
+}
+
+
+/* The Box - Padding around block */
+/* https://every-layout.dev/layouts/box/ */
+
+.l_box {
+    padding: var(--l_box__padding, 1rem);
+}
+
+
+/* The Center - horizontal centering */
+/* https://every-layout.dev/layouts/center/ */
+
+.l_center {
+    max-inline-size: var(--l_center__measure, 65ch);
+    margin-inline: auto;
+    box-sizing: content-box;
+    padding-inline: var(--l_center__padding, 1rem);
+}
+
+
+/* The cluster - horizontal wrapping */
+/* https://every-layout.dev/layouts/cluster/ */
+
+.l_cluster {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--l_cluster__gap, 1rem);
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* The Sidebar - sidebar that switch to vertical */
+/* https://every-layout.dev/layouts/sidebar/ */
+
+.l_sidebar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--l_sidebar__gap, 1rem);
+}
+
+.l_sidebar>.l_sidebar__side {
+    flex-basis: var(--l_sidebar__width, 20rem);
+    flex-grow: 1;
+}
+
+.l_sidebar>.l_sidebar__main {
+    flex-basis: 0;
+    flex-grow: 999;
+    min-inline-size: 50%;
+}
+
+
+/* The Switcher - one row that switch to one column */
+/* https://every-layout.dev/layouts/switcher/ */
+
+.l_switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--l_switcher__gap, 1rem);
+}
+
+.l_switcher>* {
+    flex-grow: 1;
+    flex-basis: calc((var(--l_switcher__breakpoint, 30rem) - 100%) * 999);
+}
+
+
+/* The Cover - Vertical centering */
+/* https://every-layout.dev/layouts/cover/ */
+
+.l_cover {
+    display: flex;
+    flex-direction: column;
+    min-block-size: var(--l_cover__size, 100vh);
+    padding: 1rem;
+}
+
+.l_cover>* {
+    margin-block: 1rem;
+}
+
+.l_cover> :first-child:not(.l_cover__main) {
+    margin-block-start: 0;
+}
+
+.l_cover> :last-child:not(.l_cover__main) {
+    margin-block-end: 0;
+}
+
+.l_cover>.l_cover__main {
+    margin-block: auto;
+}
+
+
+/* The Grid - A grid of content */
+/* https://every-layout.dev/layouts/grid/ */
+
+.l_grid {
+    display: grid;
+    gap: var(--l_grid__gap, 1rem);
+    grid-template-columns: repeat(auto-fit, minmax(min(var(--l_grid__size, 25ch), 100%), 1fr));
+}
